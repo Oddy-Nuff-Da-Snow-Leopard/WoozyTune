@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoozyTune", "WoozyTune\WoozyTune.csproj", "{69A59D41-441A-4E39-8866-6A08537ECC72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69A59D41-441A-4E39-8866-6A08537ECC72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A59D41-441A-4E39-8866-6A08537ECC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A59D41-441A-4E39-8866-6A08537ECC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A59D41-441A-4E39-8866-6A08537ECC72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F26DAA0C-7831-45AC-B8B7-F384629E2901}
+	EndGlobalSection
+EndGlobal
