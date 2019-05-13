@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:WoozyTune"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/MainWindowStyle.xaml"/>
+                <ResourceDictionary Source="Styles/SignInPageStyle.xaml"/>
+                <ResourceDictionary Source="Styles/SignUpPageStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

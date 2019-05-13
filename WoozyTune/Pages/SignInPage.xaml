@@ -1,0 +1,61 @@
+﻿<Page x:Class="WoozyTune.Pages.SignInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WoozyTune.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="Woozy tune" FontFamily="Calibri">
+
+    <Grid>
+        <Image Stretch="Fill" Source="/WoozyTune;component/Images/SignInPageBackground.png" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Border Background="Black" Opacity="0.25"/>
+        
+        <Grid Margin="0 30 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="134*"/>
+                <ColumnDefinition Width="90*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" MinHeight="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" MinHeight="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" MinHeight="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" MinHeight="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="1" Content="Sign in" Style="{DynamicResource SignIn_Label_Style}"/>
+                <Label Grid.Row="2" Content="Login" Style="{DynamicResource Label_Style}"/>
+                <TextBox Grid.Row="3" Style="{DynamicResource Login_TextBox_Style}"/>
+                <Label Grid.Row="4" Content="Password" Style="{DynamicResource Label_Style}"/>
+                <PasswordBox Grid.Row="5" Style="{DynamicResource PasswordBox_Style}"/>
+                <Button Grid.Row="7" Content="Sign in!" Click="SignIn_Button_Click" Style="{DynamicResource SignIn_Button_Style}"/>
+                <Label Grid.Row="8" Margin="0 20 0 0" Style="{DynamicResource Separator_Label_Style}"/>
+                <Button Grid.Row="9" Content="Forgot your password?" Style="{DynamicResource Forgot_Password_Button_Style}"/>
+                <Label Grid.Row="11" Content="Do not have an account?" Style="{DynamicResource NoAccount_Label_Style}"/>
+                <Button Grid.Row="12" Content="Join us" Click="SignUp_Button_Click" Style="{DynamicResource Join_Button_Style}"/>
+                <Label Grid.Row="13" Content="OR" Style="{DynamicResource Or_Label_Style}"/>
+                <Button Grid.Row="14" Content="Continue as a guest" Style="{DynamicResource Continue_Button_Style}"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

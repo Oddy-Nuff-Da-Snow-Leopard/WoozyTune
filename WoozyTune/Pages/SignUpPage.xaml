@@ -1,0 +1,30 @@
+﻿<Page x:Class="WoozyTune.Pages.SignUpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WoozyTune.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900" FontFamily="Calibri"
+      Title="SignUpPage" Background="#FFB3B6B7">
+
+    <Grid>
+        <Image Stretch="Fill" Source="/WoozyTune;component/Images/SignUpPageBackground.png" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Border Background="Black" Opacity="0.2"/>
+        <Grid>
+
+            <ScrollViewer Margin="0 30 0 0" Height="470" VerticalAlignment="Top">
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Height="796">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Sign Up" Style="{DynamicResource SignIn_Label_Style}" Margin="220,13,-220,-56" Grid.Row="1"/>
+                </Grid>
+
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</Page>

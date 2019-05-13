@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WoozyTune"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="WoozyTune" Height="500" Width="900" FontFamily="Calibri"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.RowSpan="3" Name="frame" NavigationUIVisibility="Hidden"></Frame>
+
+        <Label Name="WindowState_Label" MouseDown="Header_MouseDown" VerticalAlignment="Top" Height="30" Grid.Row="0" Grid.ColumnSpan="2" Background="Black" Opacity="0.35"></Label>
+
+        <Grid VerticalAlignment="Top" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="373*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Style="{DynamicResource Minimize_Button_Style}" Click="Minimize_Button_Click"/>
+            <Button Name="Maximize_Button" Grid.Column="2" Style="{DynamicResource Maximize_Button_Style}" Click="Maximize_Button_Click"/>
+            <Button Name="Exit_Button" Grid.Column="3" Style="{DynamicResource Exit_Button_Style}" Click="Exit_Button_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Name="Header_Grid" Background="black" Opacity="0.75">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="135*"/>
+                <ColumnDefinition Width="140*"/>
+                <ColumnDefinition Width="293*"/>
+                <ColumnDefinition Width="181*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="Images/Icon.png"/>
+            <Label FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Content="Home" Foreground="White"/>
+            <Label FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Content="Library" Foreground="White"/>
+            <TextBox FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Text="Search" Foreground="Gray" Margin="10" Width="40*"></TextBox>
+        </Grid>
     </Grid>
 </Window>
