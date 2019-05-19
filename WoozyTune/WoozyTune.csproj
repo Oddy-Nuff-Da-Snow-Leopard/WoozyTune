@@ -115,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\MainWindowStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,10 +136,13 @@
     <Resource Include="Images\SignInPageBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\SignUpPageBackground.png" />
+    <Resource Include="Images\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icon.png" />
+    <Folder Include="UserControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SignUpPageBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

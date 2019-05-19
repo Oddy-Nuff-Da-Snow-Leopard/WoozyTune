@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using System.Data.SqlClient;
+using System.Data;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WoozyTune.Pages
 {
@@ -22,29 +12,58 @@ namespace WoozyTune.Pages
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-
         }
 
-        private void SignUp_Button_Click(object sender, RoutedEventArgs e)
+        private void Join_Button_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new SignUpPage());
         }
 
         private void SignIn_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (mainWindow.WindowState != WindowState.Maximized)
-            {
-                mainWindow.Hide();
-                mainWindow.Width = SystemParameters.PrimaryScreenWidth * 0.8;
-                mainWindow.Height = SystemParameters.PrimaryScreenHeight * 0.8;
-                mainWindow.Top = (SystemParameters.PrimaryScreenHeight - ActualHeight) / 2;
-                mainWindow.Left = (SystemParameters.PrimaryScreenWidth - ActualWidth) / 2;
-                mainWindow.Show();
+            string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
 
-                mainWindow.WindowState_Label.Opacity = 0.8;
-                mainWindow.Header_Grid.Visibility = Visibility.Visible;
-                mainWindow.frame.Navigate(new HomePage());
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("GetUser", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                var loginParameter = new SqlParameter { ParameterName = "@l", Value = Login_TextBox.Text};
+                var passwordParameter = new SqlParameter { ParameterName = "@p", Value = int.Parse(PasswordBox.Password)/* PasswordBox.Password.GetHashCode()*/ };
+                var result = new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output};
+
+                command.Parameters.Add(loginParameter);
+                command.Parameters.Add(passwordParameter);
+                command.Parameters.Add(result);
+
+                command.ExecuteNonQuery();
+
+                if((int)result.Value == 1)
+                {
+                    if (mainWindow.WindowState != WindowState.Maximized)
+                    {
+                        mainWindow.Hide();
+                        mainWindow.Width = SystemParameters.PrimaryScreenWidth * 0.8;
+                        mainWindow.Height = SystemParameters.PrimaryScreenHeight * 0.8;
+                        mainWindow.Top = (SystemParameters.PrimaryScreenHeight - ActualHeight) / 2;
+                        mainWindow.Left = (SystemParameters.PrimaryScreenWidth - ActualWidth) / 2;
+                        mainWindow.Show();
+
+                        mainWindow.frame.Navigate(new HomePage());
+                    }
+                }
             }
+        }
+
+        private void Continue_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Join_Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
