@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="WoozyTune.UserControls.WindowStateUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WoozyTune.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <Style x:Key="WindowState_Label_Style" TargetType="Label">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Opacity" Value="0.35"/>
+        </Style>
+
+        <Style x:Key="Minimize_Button_Style" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1" BorderBrush="#FF61480E" CornerRadius="20" Width="20" Height="20" Background="DarkOrange"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Maximize_Button_Style" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1" BorderBrush="#FF043A04" CornerRadius="20" Width="20" Height="20" Background="Darkgreen"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Exit_Button_Style" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1" BorderBrush="#FF590000" CornerRadius="20" Width="20" Height="20" Background="DarkRed"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Label Name="WindowState_Label" MouseDown="WindowState_Label_MouseDown" Style="{DynamicResource WindowState_Label_Style}"/>
+
+            <Grid Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="35"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="Minimize_Button" Grid.Column="1" Style="{DynamicResource Minimize_Button_Style}" Click="Minimize_Button_Click"/>
+                <Button Name="Maximize_Button" Grid.Column="2" Style="{DynamicResource Maximize_Button_Style}" Click="Maximize_Button_Click"/>
+                <Button Name="Exit_Button" Grid.Column="3" Style="{DynamicResource Exit_Button_Style}" Click="Exit_Button_Click"/>
+            </Grid>
+    </Grid>
+</UserControl>

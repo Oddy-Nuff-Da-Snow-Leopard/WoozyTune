@@ -18,7 +18,7 @@ CREATE TABLE UsersData(
 DROP TABLE Users
 CREATE TABLE Users(
 [UserId] int IDENTITY(1, 1) CONSTRAINT PK_Users_UserId PRIMARY KEY CONSTRAINT FK_Users_UserId FOREIGN KEY REFERENCES UsersData(UserID),
-[Username] nvarchar(max),
+[Login] nvarchar(max),
 [Password] int);
 
 

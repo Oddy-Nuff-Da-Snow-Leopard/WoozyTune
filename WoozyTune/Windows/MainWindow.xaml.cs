@@ -10,16 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WoozyTune.UserControls;
 
-namespace WoozyTune.Pages
+namespace WoozyTune
 {
-    public partial class SignUpPage : Page
+    public partial class MainWindow : Window
     {
-        public SignUpPage()
+        public MainWindow()
         {
             InitializeComponent();
+            Width = SystemParameters.PrimaryScreenWidth * 0.8;
+            Height = SystemParameters.PrimaryScreenHeight * 0.8;
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
+            grid.Children.Add(new WindowStateUserControl(this));
         }
     }
 }

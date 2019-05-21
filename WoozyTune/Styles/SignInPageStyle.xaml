@@ -20,16 +20,18 @@
     <Style x:Key="SignIn_Common_Label_Style" TargetType="Label">
         <Setter Property="Foreground" Value="#99000000"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Padding" Value="5 8 0 0"/>
+        <Setter Property="Padding" Value="5 5 0 0"/>
     </Style>
 
 
-    <Style x:Key="Login_TextBox_Style" TargetType="TextBox">
+    <Style x:Key="SignIn_Login_TextBox_Style" TargetType="TextBox">
         <Setter Property="Foreground" Value="#99000000"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Height" Value="28"/>
         <Setter Property="Padding" Value="5 0 0 0"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="SelectionBrush" Value="#99000000"/>
 
         <Setter Property="Background">
             <Setter.Value>
@@ -40,12 +42,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Border CornerRadius="11" x:Name="border" Background="{TemplateBinding Background}" BorderThickness="1.5">
-                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border CornerRadius="10" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="#4C000000"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#99000000"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -53,12 +58,14 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PasswordBox_Style" TargetType="PasswordBox">
+    <Style x:Key="SignIn_PasswordBox_Style" TargetType="PasswordBox">
         <Setter Property="Foreground" Value="#99000000"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Height" Value="28"/>
         <Setter Property="Padding" Value="5 0 0 0"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="SelectionBrush" Value="#99000000"/>
 
         <Setter Property="Background">
             <Setter.Value>
@@ -69,12 +76,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="PasswordBox">
-                    <Border CornerRadius="11" x:Name="border" Background="{TemplateBinding Background}" BorderThickness="1.5">
-                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border CornerRadius="10" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="#4C000000"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#99000000"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -83,31 +93,39 @@
     </Style>
 
     <Style x:Key="SignIn_Button_Style" TargetType="Button">
-        <Setter Property="Foreground" Value="#99000000"/>
+        <Setter Property="Foreground" Value="#CC000000"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="28"/>
         <Setter Property="Width" Value="180"/>
         <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="16" Background="White" Opacity="0.5">
+                    <Border x:Name="border" CornerRadius="15" Background="#fff" Opacity="0.6">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#B2FFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#B2535353"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+    
 
     <Style x:Key="Separator_Label_Style" TargetType="Label">
-        <Setter Property="Foreground" Value="#99000000"/>
+        <Setter Property="Margin" Value="0 5 0 0"/>
         <Setter Property="Height" Value="0.65"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Label">
-                    <Border CornerRadius="10" Background="AntiqueWhite">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
+                    <Border CornerRadius="10" Background="AntiqueWhite"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -118,7 +136,6 @@
         <Setter Property="Foreground" Value="#99000000"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="180"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -131,12 +148,8 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NoAccount_Label_Style" TargetType="Label">
-        <Setter Property="Foreground" Value="#99000000"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+    <Style x:Key="No_Account_Button_Style" TargetType="Button" BasedOn="{StaticResource Forgot_Password_Button_Style}">
+        <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
     <Style x:Key="Join_Button_Style" TargetType="Button">

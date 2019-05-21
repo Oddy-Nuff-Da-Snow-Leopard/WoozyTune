@@ -13,13 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WoozyTune.Pages
+namespace WoozyTune.UserControls
 {
-    public partial class SignUpPage : Page
+    public partial class MusicControlToolbar : UserControl
     {
-        public SignUpPage()
+        public MusicControlToolbar()
         {
             InitializeComponent();
+        }
+
+        private MediaPlayer player = new MediaPlayer();
+
+        private void Playback_Button_Click(object sender, RoutedEventArgs e)
+        {
+            player.Open(new Uri("D:/Music/music.mp3", UriKind.Absolute));
+            player.Play();
         }
     }
 }

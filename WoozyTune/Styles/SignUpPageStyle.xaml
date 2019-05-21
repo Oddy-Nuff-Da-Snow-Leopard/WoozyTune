@@ -9,20 +9,115 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SignUp_Label_Style" TargetType="Label">
+    <Style x:Key="SignUp_Label_Style" TargetType="Label" BasedOn="{StaticResource SignIn_Label_Style}">
         <Setter Property="Foreground" Value="#99F0F0F0"/>
-        <Setter Property="FontSize" Value="28"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="SignUp_Common_Label_Style" TargetType="Label">
+    <Style x:Key="SignUp_Common_Label_Style" TargetType="Label" BasedOn="{StaticResource SignIn_Common_Label_Style}">
         <Setter Property="Foreground" Value="#99F0F0F0"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Padding" Value="5 8 0 0"/>
     </Style>
 
+    <Style x:Key="SignUp_Login_TextBox_Style" TargetType="TextBox">
+        <Setter Property="Foreground" Value="#99000000"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Padding" Value="5 0 0 0"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="SelectionBrush" Value="#99000000"/>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#fff" Opacity="0.3"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#4C000000"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#99000000"/>
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SignUp_PasswordBox_Style" TargetType="PasswordBox">
+        <Setter Property="Foreground" Value="#99000000"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Padding" Value="5 0 0 0"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="SelectionBrush" Value="#99000000"/>
+        <Setter Property="Margin" Value="0"/>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#fff" Opacity="0.3"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border CornerRadius="10" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#4C000000"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#99000000"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="Gender_RadioButton_Style" TargetType="RadioButton">
+        <Setter Property="Foreground" Value="#99F0F0F0"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <BulletDecorator Cursor="Hand">
+                        <BulletDecorator.Bullet>
+                            <Grid Height="14" Width="14">
+                                <Border Name="RadioOuter" BorderBrush="Gainsboro" BorderThickness="1.5" CornerRadius="2"/>
+                                <Border CornerRadius="0" Margin="4" Name="RadioMark" Background="#FFADADAD" Visibility="Hidden"/>
+                            </Grid>
+                        </BulletDecorator.Bullet>
+
+                        <TextBlock Margin="3 0 0 0">
+                            <ContentPresenter/>
+                        </TextBlock>
+                    </BulletDecorator>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="RadioOuter" Property="BorderBrush" Value="#FFADADAD"/>
+                            <Setter TargetName="RadioMark" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="ScrollBarLineButtonStyle" TargetType="{x:Type RepeatButton}">
             <Setter Property="Focusable" Value="False"/>

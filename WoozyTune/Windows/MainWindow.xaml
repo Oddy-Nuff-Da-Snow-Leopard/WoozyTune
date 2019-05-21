@@ -3,35 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" Style="{DynamicResource MainWindow_Style}">
-
+        mc:Ignorable="d" Height="720" Width="1280"
+        WindowStartupLocation="CenterScreen" Style="{DynamicResource Window_Style}">
     <Grid>
-        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
-
-        <Grid>
+        <Grid Name="grid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="30*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
-            <Label Name="WindowState_Label" MouseDown="WindowState_Label_MouseDown" Style="{DynamicResource WindowState_Label_Style}"/>
-
-            <Grid Height="30">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Name="Minimize_Button" Grid.Column="1" Style="{DynamicResource Minimize_Button_Style}" Click="Minimize_Button_Click"/>
-                <Button Name="Maximize_Button" Grid.Column="2" Style="{DynamicResource Maximize_Button_Style}" Click="Maximize_Button_Click"/>
-                <Button Name="Exit_Button" Grid.Column="3" Style="{DynamicResource Exit_Button_Style}" Click="Exit_Button_Click"/>
-            </Grid>
-
-            <!--<Grid Grid.Row="1" Name="Header_Grid" Background="black" Opacity="0.75">
+            <Grid Grid.Row="1" Name="Header_Grid" Background="black" Opacity="0.75">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="135*"/>
@@ -40,11 +23,26 @@
                     <ColumnDefinition Width="181*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="Images/Icon.png"/>
+                <Image Grid.Column="0" Source="/WoozyTune;component/Images/Logo.png"/>
                 <Label FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Content="Home" Foreground="White"/>
                 <Label FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Content="Library" Foreground="White"/>
                 <TextBox FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="3" Text="Search" Foreground="Gray" Width="220"></TextBox>
-            </Grid>-->
+            </Grid>
+
+
+            <Frame Grid.Row="2" Name="frame" NavigationUIVisibility="Hidden"/>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
