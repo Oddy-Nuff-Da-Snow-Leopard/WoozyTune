@@ -12,23 +12,35 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="1" Name="Header_Grid" Background="black" Opacity="0.75">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="160"/>
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="293*"/>
                     <ColumnDefinition Width="181*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="/WoozyTune;component/Images/Logo.png"/>
-                <Grid Grid.Column="1" Name="Home_Button" MouseDown="Home_Button_MouseDown" Style="{DynamicResource Header_Button_Style}">
-                    <TextBlock Text="Home" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <Rectangle x:Name="Home_Underline" VerticalAlignment="Bottom"/>
+                <!--<Button BorderThickness="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Logo.png"/>
+                        <TextBlock Text="WoozyTune" Style="{DynamicResource Logo_Text_Style}"/>
+                    </StackPanel>
+                </Button>-->
+                <Grid Grid.Column="1">
+                    <Label Name="Home_Button" Content="Home" MouseDown="Home_Button_MouseDown" Style="{DynamicResource Header_Button_Style}"/>
+                    <Rectangle x:Name="Home_Underline" Style="{DynamicResource Underline_Rectangle_style}"/>
                 </Grid>
+
+                <Grid Grid.Column="2">
+                    <Label Name="Library_Button" Content="Library" MouseDown="Library_Button_MouseDown" Style="{DynamicResource Header_Button_Style}"/>
+                    <Rectangle x:Name="Library_Underline" Style="{DynamicResource Underline_Rectangle_style}"/>
+                </Grid>
+                
+                
             </Grid>
 
             <Grid Grid.Row="2">
@@ -59,7 +71,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="1" Name="Previous_Button"/>
-                <Button Grid.Column="2" Name="Playback_Button"/>
+                <Button Grid.Column="2" Name="Playback_Button" Click="Playback_Button_Click"/>
                 <Button Grid.Column="3" Name="Skip_Button"/>
                 <!--<Button Grid.Column="4" Name="Shuffle_Button" Margin="10"/>-->
                 <!--<Button Grid.Column="5" Name="Repeat_Button" Margin="10"/>-->

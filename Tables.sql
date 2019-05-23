@@ -4,7 +4,7 @@ DROP DATABASE WoozyTune;
 CREATE DATABASE WoozyTune;
 USE WoozyTune;
 
-DROP TABLE UsersDate;
+DROP TABLE UsersData;
 DROP TABLE Users;
 
 CREATE TABLE UsersData(
@@ -32,8 +32,14 @@ CREATE TABLE Tracks(
 [TrackId] int IDENTITY(1, 1) PRIMARY KEY,
 [UserId] int FOREIGN KEY REFERENCES UsersData(UserID),
 [Path] nvarchar(max),
-[Image] image NULL,
+[Image] nvarchar(max),
 [Genre] nvarchar(max));
+
+INSERT INTO Tracks VALUES
+(1, 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Music\music.mp3', 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Images\m.jpg', 'Chill');
+INSERT INTO Tracks VALUES
+(1, 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Music\music1.mp3', 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Images\m.jpg', 'Chill');
+
 
 CREATE TABLE UsersHistory(
 HistoryId int IDENTITY(1, 1) PRIMARY KEY,

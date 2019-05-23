@@ -12,11 +12,16 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WoozyTune.UserControls;
+using WoozyTune.Pages;
+using System.Windows.Media;
 
 namespace WoozyTune
 {
     public partial class MainWindow : Window
     {
+        private HomePage homePage;
+        private LibraryPage libraryPage;
+        private MediaPlayer mediaPlayer;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,14 +32,33 @@ namespace WoozyTune
             var a = new WindowStateUserControl(this);
             a.WindowState_Label.Opacity = 0.7;
             grid.Children.Add(a);
+
+            homePage = new HomePage(this);
+            libraryPage = new LibraryPage();
+            mediaPlayer = new MediaPlayer();
+            frame.Navigate(homePage);
         }
 
-
-
-        private void BurgerCategory_MouseDown(object sender, MouseButtonEventArgs e) =>
-            Home_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Home_Underline.ActualWidth, Home_Button.Width, TimeSpan.FromSeconds(0.7)));
-
         private void Home_Button_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Home_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Home_Underline.ActualWidth, Home_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
+            frame.Navigate(homePage);
+        }
+
+        private void Library_Button_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Library_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Library_Underline.ActualWidth, Library_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
+            frame.Navigate(libraryPage);
+        }
+
+        public void GetRef(Uri path)
+        {
+            mediaPlayer.Close();
+            mediaPlayer.Open(path);
+            mediaPlayer.Play();
+        }
+
+        private void Playback_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

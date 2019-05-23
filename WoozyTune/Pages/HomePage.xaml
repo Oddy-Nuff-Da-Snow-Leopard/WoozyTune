@@ -5,10 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WoozyTune.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="HomePage" Background="green">
+      d:DesignHeight="580" d:DesignWidth="1024"
+      Title="HomePage" Style="{DynamicResource Page_Style}">
 
-    <Grid>
-        
+    <Page.Resources>
+        <ResourceDictionary Source="/Styles/HomePageStyle.xaml"/>
+    </Page.Resources>
+
+    <Grid Background="#FFB2B2B2">
+        <ScrollViewer>
+            <Grid Margin="20 20 5 20" Background="red" Height="1500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="866*"/>
+                    <RowDefinition Height="375*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label FontSize="22" Content="Chill"/>
+                    <Label FontSize="18" Content="Popular playlists from the WoozyTune community"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1" Name="grid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Separator Background="Black" Grid.Column="1" Grid.RowSpan="3"/>
+            </Grid>
+        </ScrollViewer>
+
     </Grid>
 </Page>
