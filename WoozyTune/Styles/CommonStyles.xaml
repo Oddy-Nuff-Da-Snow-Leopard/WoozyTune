@@ -3,8 +3,6 @@
 
     <Style x:Key="Page_Style" TargetType="Page">
         <Setter Property="FontFamily" Value="Calibri"/>
-        <Setter Property="Foreground" Value="#99000000"/>
-
     </Style>
     
     <Style x:Key="Window_Style" TargetType="Window">
@@ -18,7 +16,7 @@
         <Setter Property="Padding" Value="10 0 0 0"/>
         <Setter Property="Height" Value="18"/>
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="Foreground" Value="#FFA62626"/>
     </Style>
     
 </ResourceDictionary>

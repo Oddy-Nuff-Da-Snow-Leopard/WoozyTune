@@ -5,8 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="900" Style="{DynamicResource Page_Style}">
-
-    <Grid Style="{DynamicResource SignIn_Grid_Style}">
+    
+    <Page.Resources>
+        <ResourceDictionary Source="/Styles/SignInPageStyle.xaml"/>
+    </Page.Resources>
+    
+    <Grid Style="{DynamicResource Grid_Style}">
         <Border Background="Black" Opacity="0.25"/>
         
         <Grid Margin="0 30 0 0">
@@ -28,7 +32,8 @@
                     <RowDefinition Height="16"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -37,27 +42,27 @@
 
                 <Label Grid.Row="0" Content="Sign in" Style="{DynamicResource SignIn_Label_Style}"/>
                 
-                <Label Grid.Row="1" Content="Login" Style="{DynamicResource SignIn_Common_Label_Style}"/>
-                <TextBox Grid.Row="2" Name="SignIn_Login_TextBox" Style="{DynamicResource SignIn_Login_TextBox_Style}"
-                         Keyboard.GotKeyboardFocus="SignIn_Login_TextBox_GotKeyboardFocus"/>
-                <Label Grid.Row="3" Name="SignIn_Login_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
+                <Label Grid.Row="1" Content="Login" Style="{DynamicResource Label_Style}"/>
+                <TextBox Grid.Row="2" Name="Login_TextBox" Style="{DynamicResource Login_TextBox_Style}"
+                        Keyboard.GotKeyboardFocus="Login_TextBox_GotKeyboardFocus"/>
+                <Label Grid.Row="3" Name="Login_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
                 
-                <Label Grid.Row="4" Content="Password" Style="{DynamicResource SignIn_Common_Label_Style}"/>
-                <PasswordBox Grid.Row="5" Name="SignIn_PasswordBox" Style="{DynamicResource SignIn_PasswordBox_Style}"
-                             Keyboard.GotKeyboardFocus="SignIn_PasswordBox_GotKeyboardFocus"/>
-                <Label Grid.Row="6" Name="SignIn_PasswordBox_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
+                <Label Grid.Row="4" Content="Password" Style="{DynamicResource Label_Style}"/>
+                <PasswordBox Grid.Row="5" Name="PasswordBox" Style="{DynamicResource PasswordBox_Style}"
+                        Keyboard.GotKeyboardFocus="PasswordBox_GotKeyboardFocus"/>
+                <Label Grid.Row="6" Name="PasswordBox_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
                 
                 <Button Grid.Row="7" Name="SignIn_Button" Content="Sign in!" Click="SignIn_Button_Click" Style="{DynamicResource SignIn_Button_Style}"/>
-                <Label Grid.Row="8" HorizontalAlignment="Center" Name="SignIn_Button_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
-                <Label Grid.Row="9" Name="Separator_Label" Style="{DynamicResource Separator_Label_Style}"/>
+                <Label Grid.Row="8" HorizontalAlignment="Center" Name="SignIn_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
+                <Label Grid.Row="9" Style="{DynamicResource Separator_Label_Style}"/>
                 
                 <Button Grid.Row="10" Name="Forgot_Password_Button" Content="Forgot your password?" Style="{DynamicResource Forgot_Password_Button_Style}"/>
                 
-                <Button Grid.Row="11" Name="No_Account_Button" Content="Do not have an account?" Style="{DynamicResource No_Account_Button_Style}"/>
-
+                <Button Grid.Row="11" Name="No_Account_Button" Content="Do not have an account?" Click="No_Account_Button_Click" Style="{DynamicResource No_Account_Button_Style}"/>
+                
                 <Button Grid.Row="12" Name="Join_Button" Content="Join us" Click="Join_Button_Click" Style="{DynamicResource Join_Button_Style}"/>
-                <!--<Label Grid.Row="13" Name="or" Content="OR" Style="{DynamicResource No_Account_Label_Style}"/>-->
-                <Button Grid.Row="14" Name="Continue_Button" Content="Continue as a guest" Click="Continue_Button_Click" Style="{DynamicResource Continue_Button_Style}"/>
+                <Label Grid.Row="13" Name="Or_Label" Content="Or" Style="{DynamicResource Or_Label_Style}"/>
+                <Button Grid.Row="14" Name="Continue_Button" Content="Continue as a guest" Style="{DynamicResource Continue_Button_Style}"/>
             </Grid>
         </Grid>
     </Grid>
