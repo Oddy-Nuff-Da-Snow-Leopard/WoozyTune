@@ -16,49 +16,53 @@ namespace WoozyTune.Pages
         {
             InitializeComponent();
             this.loginWindow = loginWindow;
+            Login_TextBox.Text = "angry.school.boy";
+            PasswordBox.Password = "P@ssw0rd";
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e) => loginWindow.frame.Navigate(new SignUpPage(loginWindow));
 
         private void SignIn_Button_Click(object sender, RoutedEventArgs e)
         {
-            //if (!string.IsNullOrEmpty(Login_TextBox.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
-            //{
-            //    string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
+            if (!string.IsNullOrEmpty(Login_TextBox.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
+            {
+                string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
 
-            //    using (var connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
-            //        var command = new SqlCommand("FindUser", connection);
-            //        command.CommandType = CommandType.StoredProcedure;
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    var command = new SqlCommand("FindUser", connection);
+                    command.CommandType = CommandType.StoredProcedure;
 
-            //        command.Parameters.Add(new SqlParameter { ParameterName = "@l", Value = Login_TextBox.Text });
-            //        command.Parameters.Add(new SqlParameter { ParameterName = "@p", Value = PasswordBox.Password.GetHashCode() });
-            //        command.Parameters.Add(new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@l", Value = Login_TextBox.Text });
+                    command.Parameters.Add(new SqlParameter { ParameterName = "@p", Value = PasswordBox.Password.GetHashCode() });
+                    var result = new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+                    command.Parameters.Add(result);
 
-            //        command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
-            //        if ((int)command.Parameters["@result"].Value == 1)
-            //        {
+                    if ((int)result.Value != 0)
+                    {
+                        CurrentUser.UserId = (int)result.Value;
                         loginWindow.Hide();
                         new MainWindow().Show();
                         loginWindow.Close();
-            //        }
-            //        else { SignIn_Error_Label.Content = "Incorrect username or password"; }
-            //    }
-            //}
+                    }
+                    else { SignIn_Error_Label.Content = "Incorrect username or password"; }
+                }
+            }
 
-            //if (string.IsNullOrEmpty(Login_TextBox.Text))
-            //{
-            //    Login_Error_Label.Content = "Please enter your login.";
-            //    Login_TextBox.BorderBrush = new SolidColorBrush(Color.FromRgb(166, 38, 38));
-            //}
+            if (string.IsNullOrEmpty(Login_TextBox.Text))
+            {
+                Login_Error_Label.Content = "Please enter your login.";
+                Login_TextBox.BorderBrush = new SolidColorBrush(Color.FromRgb(166, 38, 38));
+            }
 
-            //if (string.IsNullOrEmpty(PasswordBox.Password))
-            //{
-            //    PasswordBox_Error_Label.Content = "Please enter your password.";
-            //    PasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(166, 38, 38));
-            //}
+            if (string.IsNullOrEmpty(PasswordBox.Password))
+            {
+                PasswordBox_Error_Label.Content = "Please enter your password.";
+                PasswordBox.BorderBrush = new SolidColorBrush(Color.FromRgb(166, 38, 38));
+            }
         }
 
         private void Clean_Error_Labels()

@@ -61,12 +61,14 @@ namespace WoozyTune.Pages
                     command.Parameters.Add(new SqlParameter { ParameterName = "@a", Value = int.Parse(Age_TextBox.Text) });
                     command.Parameters.Add(new SqlParameter { ParameterName = "@g", Value =  a});
                     command.Parameters.Add(new SqlParameter { ParameterName = "@u", Value = Username_TextBox.Text});
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output });
+                    var result = new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+                    command.Parameters.Add(result);
 
                     command.ExecuteNonQuery();
 
-                    if ((int)command.Parameters["@result"].Value == 1)
+                    if ((int)result.Value != 0)
                     {
+                        CurrentUser.UserId = (int)result.Value;
                         loginWindow.Hide();
                         new MainWindow().Show();
                         loginWindow.Close();

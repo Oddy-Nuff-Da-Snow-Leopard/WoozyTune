@@ -13,13 +13,13 @@ CREATE TABLE UsersData(
 [Surname] nvarchar(max) NULL,
 
 [Gender] nvarchar(max) NOT NULL,
-[Age] tinyint NOT NULL,
+[Age] int NOT NULL,
 [Username] nvarchar(max) NOT NULL,
 
 [Country] nvarchar(max) NULL,
 [City] nvarchar(max) NULL,
-[BackgroundImage] varbinary(max) NULL,
-[Image] varbinary(max) NULL);
+[BackgroundImagePath] varbinary(max) NULL,
+[ImagePath] varbinary(max) NULL);
 
 
 CREATE TABLE Users(
@@ -27,19 +27,27 @@ CREATE TABLE Users(
 [Login] nvarchar(max),
 [Password] int);
 
+SELECT * FROM Users
+SELECT * FROM UsersData
+
+
 DROP TABLE Tracks;
 CREATE TABLE Tracks(
 [TrackId] int IDENTITY(1, 1) PRIMARY KEY,
-[UserId] int FOREIGN KEY REFERENCES UsersData(UserID),
+[PlaylistId] int FOREIGN KEY REFERENCES Playlists(PlaylistId),
+[UserId] int FOREIGN KEY REFERENCES UsersData(UserId),
+[Artist] nvarchar(max),
+[Title] nvarchar(max),
 [Path] nvarchar(max),
-[Image] nvarchar(max),
+[ImagePath] nvarchar(max),
 [Genre] nvarchar(max));
 
-INSERT INTO Tracks VALUES
-(1, 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Music\music.mp3', 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Images\m.jpg', 'Chill');
-INSERT INTO Tracks VALUES
-(1, 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Music\music1.mp3', 'D:\2 йспя\2-НИ ЯЕЛ\нно\WoozyTune\WoozyTune\bin\Debug\Images\m.jpg', 'Chill');
-
+DROP TABLE Playlists
+CREATE TABLE Playlists(
+[PlaylistId] int IDENTITY(0, 1) PRIMARY KEY,
+[Artist] nvarchar(max) NULL,
+[Title] nvarchar(max) NULL);
+INSERT INTO Playlists VALUES(NULL, NULL);
 
 CREATE TABLE UsersHistory(
 HistoryId int IDENTITY(1, 1) PRIMARY KEY,

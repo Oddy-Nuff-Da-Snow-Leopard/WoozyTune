@@ -14,12 +14,14 @@
 
     <Grid Background="#FFB2B2B2">
         <ScrollViewer>
-            <Grid Margin="20 20 5 20" Background="red" Height="1500">
+            <Grid Name="grid" Margin="20 20 3 20" Background="White" Height="1500">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="100"/>
                     <RowDefinition Height="200"/>
-                    <RowDefinition Height="866*"/>
-                    <RowDefinition Height="375*"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="200"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -30,7 +32,35 @@
                     <Label FontSize="18" Content="Popular playlists from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="1" Name="grid">
+                <Grid Grid.Row="1" Name="Chill">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <StackPanel Grid.Row="2">
+                    <Label FontSize="22" Content="Chill"/>
+                    <Label FontSize="18" Content="Popular playlists from the WoozyTune community"/>
+                </StackPanel>
+
+                <Grid Grid.Row="3" Name="Party">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <StackPanel Grid.Row="4">
+                    <Label FontSize="22" Content="Chill"/>
+                    <Label FontSize="18" Content="Popular playlists from the WoozyTune community"/>
+                </StackPanel>
+
+                <Grid Grid.Row="5" Name="Relax">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>

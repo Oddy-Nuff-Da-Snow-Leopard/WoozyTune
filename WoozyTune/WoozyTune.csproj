@@ -59,11 +59,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CurrentUser.cs" />
     <Compile Include="Pages\LibraryPage.xaml.cs">
       <DependentUpon>LibraryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UploadPage.xaml.cs">
+      <DependentUpon>UploadPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\g.xaml.cs">
       <DependentUpon>g.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TrackLoadUserControl.xaml.cs">
+      <DependentUpon>TrackLoadUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WindowStateUserControl.xaml.cs">
       <DependentUpon>WindowStateUserControl.xaml</DependentUpon>
@@ -115,11 +122,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UploadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\HomePageStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\UploadPageStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\g.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TrackLoadUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,27 +184,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\SignInPageBackground.png" />
+    <Resource Include="BackgroundImages\SignInPageBackground.png" />
+    <Resource Include="BackgroundImages\SignUpPageBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\SignUpPageBackground.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Windows\LikeNonActive.png" />
-    <Resource Include="Windows\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\LikeNonActive.png" />
-    <Resource Include="Images\Next.png" />
-    <Resource Include="Images\Pause.png" />
-    <Resource Include="Images\Play.png" />
-    <Resource Include="Images\Previous.png" />
-    <Resource Include="Images\RepeatActive.png" />
-    <Resource Include="Images\RepeatNonActive.png" />
-    <Resource Include="Images\Volume.png" />
+    <Resource Include="BackgroundImages\LoadImageBackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

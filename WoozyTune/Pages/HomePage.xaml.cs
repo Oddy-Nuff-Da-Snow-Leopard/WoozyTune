@@ -35,14 +35,25 @@ namespace WoozyTune.Pages
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
 
+            var gridList = new List<Grid>();
+            gridList.Add(Chill);
+            gridList.Add(Party);
+            gridList.Add(Relax);
+            foreach (var g in gridList)
+            {
+                LoadPlayList(g);
+            }
+
+        }
+
+        private void LoadPlayList(Grid grid)
+        {
+            string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string select = /*$ {}*/"SELECT * FROM Tracks WHERE Genre = 'Chill'";
-
-
+                string select = $"SELECT * FROM Tracks WHERE Genre = '{grid.Name}'";
                 var command = new SqlCommand(select, connection);
 
                 var reader = command.ExecuteReader();
@@ -53,9 +64,9 @@ namespace WoozyTune.Pages
                     var a = new g();
                     var c = reader.GetString(2);
                     a.image.Source = new BitmapImage(new Uri(reader.GetString(3)));
-                    a.image.MouseEnter += (s, t) => { a.play.Visibility = Visibility.Visible; };
-                    
-                    a.play.Click += (s, t) => { mainWindow.GetRef(new Uri(c)); };
+                    a.image.MouseEnter += (s, h) => { a.play.Visibility = Visibility.Visible; };
+
+                    a.play.Click += (s, h) => { mainWindow.GetRef(new Uri(c)); };
                     Grid.SetColumn(a, i++);
                     grid.Children.Add(a);
                 }

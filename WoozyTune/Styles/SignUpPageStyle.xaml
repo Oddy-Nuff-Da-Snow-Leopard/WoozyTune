@@ -4,7 +4,7 @@
     <Style x:Key="Grid_Style" TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="/WoozyTune;component/Images/SignUpPageBackground.png"/>
+                <ImageBrush ImageSource="/WoozyTune;component/BackgroundImages/SignUpPageBackground.png"/>
             </Setter.Value>
         </Setter>
     </Style>

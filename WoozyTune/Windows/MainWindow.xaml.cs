@@ -22,6 +22,9 @@ namespace WoozyTune
         private HomePage homePage;
         private LibraryPage libraryPage;
         private MediaPlayer mediaPlayer;
+        private UploadPage uploadPage;
+        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +39,10 @@ namespace WoozyTune
             homePage = new HomePage(this);
             libraryPage = new LibraryPage();
             mediaPlayer = new MediaPlayer();
+
             frame.Navigate(homePage);
+
+            //MessageBox.Show(UserId.ToString());
         }
 
         private void Home_Button_MouseDown(object sender, MouseButtonEventArgs e)
@@ -60,7 +66,17 @@ namespace WoozyTune
 
         private void Playback_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Playback_Button.IsChecked == true)
+                mediaPlayer.Pause();
+            else
+                mediaPlayer.Play();
         }
+
+        private void Upload_Button_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Upload_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Upload_Underline.ActualWidth, Upload_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
+            frame.Navigate(uploadPage = new UploadPage());
+        }
+
     }
 }

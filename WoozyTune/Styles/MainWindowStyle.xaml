@@ -25,6 +25,4 @@
         <Setter Property="Fill" Value="DarkCyan"/>
     </Style>
     
-    
-    
 </ResourceDictionary>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="245">
     <Grid Background="blue" Margin="15">
-        <Image Name="image" />
+        <Image Stretch="Fill" Name="image" />
         <Button Name="play" Visibility="Hidden" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </UserControl>
