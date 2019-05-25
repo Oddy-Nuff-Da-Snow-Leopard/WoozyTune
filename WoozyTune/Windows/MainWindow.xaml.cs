@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WoozyTune.UserControls;
 using WoozyTune.Pages;
 using System.Windows.Media;
@@ -24,10 +15,11 @@ namespace WoozyTune
         private MediaPlayer mediaPlayer;
         private UploadPage uploadPage;
         
-
         public MainWindow()
         {
             InitializeComponent();
+            Windows.mainWindow = this;
+
             Width = SystemParameters.PrimaryScreenWidth * 0.8;
             Height = SystemParameters.PrimaryScreenHeight * 0.8;
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
@@ -36,8 +28,7 @@ namespace WoozyTune
             a.WindowState_Label.Opacity = 0.7;
             grid.Children.Add(a);
 
-            homePage = new HomePage(this);
-            libraryPage = new LibraryPage();
+            homePage = new HomePage();
             mediaPlayer = new MediaPlayer();
 
             frame.Navigate(homePage);
@@ -54,22 +45,24 @@ namespace WoozyTune
         private void Library_Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Library_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Library_Underline.ActualWidth, Library_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
-            frame.Navigate(libraryPage);
+            frame.Navigate(new LibraryPage());
         }
 
-        public void GetRef(Uri path)
-        {
-            mediaPlayer.Close();
-            mediaPlayer.Open(path);
-            mediaPlayer.Play();
-        }
+            
+        public void Open(Uri path) => mediaPlayer.Open(path);
+
+        public void Play() => mediaPlayer.Play();
+
+        public void Close() => mediaPlayer.Close();
+
+        public void Pause() => mediaPlayer.Pause();
 
         private void Playback_Button_Click(object sender, RoutedEventArgs e)
         {
-            if(Playback_Button.IsChecked == true)
-                mediaPlayer.Pause();
+            if (Playback_Button.IsChecked == true)
+                Pause();
             else
-                mediaPlayer.Play();
+                Play();
         }
 
         private void Upload_Button_MouseDown(object sender, MouseButtonEventArgs e)

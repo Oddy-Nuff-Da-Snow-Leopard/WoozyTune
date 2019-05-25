@@ -11,16 +11,14 @@ namespace WoozyTune.Pages
 {
     public partial class SignInPage : Page
     {
-        LoginWindow loginWindow;
-        public SignInPage(LoginWindow loginWindow)
+        public SignInPage()
         {
             InitializeComponent();
-            this.loginWindow = loginWindow;
             Login_TextBox.Text = "angry.school.boy";
             PasswordBox.Password = "P@ssw0rd";
         }
 
-        private void Join_Button_Click(object sender, RoutedEventArgs e) => loginWindow.frame.Navigate(new SignUpPage(loginWindow));
+        private void Join_Button_Click(object sender, RoutedEventArgs e) => Windows.loginWindow.frame.Navigate(new SignUpPage());
 
         private void SignIn_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -44,9 +42,9 @@ namespace WoozyTune.Pages
                     if ((int)result.Value != 0)
                     {
                         CurrentUser.UserId = (int)result.Value;
-                        loginWindow.Hide();
+                        Windows.loginWindow.Hide();
                         new MainWindow().Show();
-                        loginWindow.Close();
+                        Windows.loginWindow.Close();
                     }
                     else { SignIn_Error_Label.Content = "Incorrect username or password"; }
                 }

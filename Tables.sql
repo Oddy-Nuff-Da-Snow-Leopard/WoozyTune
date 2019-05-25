@@ -27,10 +27,6 @@ CREATE TABLE Users(
 [Login] nvarchar(max),
 [Password] int);
 
-SELECT * FROM Users
-SELECT * FROM UsersData
-
-
 DROP TABLE Tracks;
 CREATE TABLE Tracks(
 [TrackId] int IDENTITY(1, 1) PRIMARY KEY,
@@ -38,7 +34,7 @@ CREATE TABLE Tracks(
 [UserId] int FOREIGN KEY REFERENCES UsersData(UserId),
 [Artist] nvarchar(max),
 [Title] nvarchar(max),
-[Path] nvarchar(max),
+[TrackPath] nvarchar(max),
 [ImagePath] nvarchar(max),
 [Genre] nvarchar(max));
 
@@ -46,8 +42,9 @@ DROP TABLE Playlists
 CREATE TABLE Playlists(
 [PlaylistId] int IDENTITY(0, 1) PRIMARY KEY,
 [Artist] nvarchar(max) NULL,
-[Title] nvarchar(max) NULL);
-INSERT INTO Playlists VALUES(NULL, NULL);
+[Title] nvarchar(max) NULL,
+[ImagePath] nvarchar(max) NULL);
+INSERT INTO Playlists VALUES(NULL, NULL, NULL);
 
 CREATE TABLE UsersHistory(
 HistoryId int IDENTITY(1, 1) PRIMARY KEY,

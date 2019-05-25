@@ -30,6 +30,7 @@
                         <TextBlock Text="WoozyTune" Style="{DynamicResource Logo_Text_Style}"/>
                     </StackPanel>
                 </Button>-->
+                
                 <Grid Grid.Column="1">
                     <Label Name="Home_Button" Content="Home" MouseDown="Home_Button_MouseDown" Style="{DynamicResource Header_Button_Style}"/>
                     <Rectangle x:Name="Home_Underline" Style="{DynamicResource Underline_Rectangle_style}"/>

@@ -9,12 +9,14 @@ namespace WoozyTune
         public LoginWindow()
         {
             InitializeComponent();
+            Windows.loginWindow = this;
+
             Width = SystemParameters.PrimaryScreenWidth * 0.57;
             Height = SystemParameters.PrimaryScreenHeight * 0.57;
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
             grid.Children.Add(new WindowStateUserControl(this));
-            frame.Navigate(new SignInPage(this));
+            frame.Navigate(new SignInPage());
         }
     }
 }

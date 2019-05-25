@@ -17,7 +17,7 @@ namespace WoozyTune.UserControls
 {
     public partial class WindowStateUserControl : UserControl
     {
-        Window window;
+        private Window window;
         public WindowStateUserControl(Window window)
         {
             InitializeComponent();

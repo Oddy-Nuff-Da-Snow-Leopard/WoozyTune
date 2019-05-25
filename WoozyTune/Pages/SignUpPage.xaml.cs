@@ -8,13 +8,10 @@ namespace WoozyTune.Pages
 {
     public partial class SignUpPage : Page
     {
-        LoginWindow loginWindow;
-        public SignUpPage(LoginWindow loginWindow)
+        public SignUpPage()
         {
             InitializeComponent();
-            this.loginWindow = loginWindow;
         }
-
 
         private void Login_TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -69,9 +66,9 @@ namespace WoozyTune.Pages
                     if ((int)result.Value != 0)
                     {
                         CurrentUser.UserId = (int)result.Value;
-                        loginWindow.Hide();
+                        Windows.loginWindow.Hide();
                         new MainWindow().Show();
-                        loginWindow.Close();
+                        Windows.loginWindow.Close();
                     }
                     //else { SignIn_Error_Label.Content = "Incorrect username or password"; }
                 }
