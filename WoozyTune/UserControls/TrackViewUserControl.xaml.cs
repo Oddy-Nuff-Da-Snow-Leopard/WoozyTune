@@ -31,10 +31,10 @@ namespace WoozyTune.UserControls
 
         private void Playback_Button_Click(object sender, RoutedEventArgs e)
         {
-            if(Playback_Button.IsChecked == false)
-                Windows.mainWindow.Open(U)
+            //if(Playback_Button.IsChecked == false)
+            //    Windows.mainWindow.Open(U)
 
-            else
+            //else
 
 
         }

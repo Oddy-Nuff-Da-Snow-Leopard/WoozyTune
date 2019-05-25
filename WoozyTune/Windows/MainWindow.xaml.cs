@@ -48,21 +48,21 @@ namespace WoozyTune
             frame.Navigate(new LibraryPage());
         }
 
-            
-        public void Open(Uri path) => mediaPlayer.Open(path);
 
-        public void Play() => mediaPlayer.Play();
+        //public void Open(Uri path) => mediaPlayer.Open(path);
 
-        public void Close() => mediaPlayer.Close();
+        //public void Play() => mediaPlayer.Play();
 
-        public void Pause() => mediaPlayer.Pause();
+        //public void Close() => mediaPlayer.Close();
+
+        //public void Pause() => mediaPlayer.Pause();
 
         private void Playback_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Playback_Button.IsChecked == true)
-                Pause();
-            else
-                Play();
+            //if (Playback_Button.IsChecked == true)
+            //    Pause();
+            //else
+            //    Play();
         }
 
         private void Upload_Button_MouseDown(object sender, MouseButtonEventArgs e)
