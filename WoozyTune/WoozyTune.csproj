@@ -74,18 +74,14 @@
     <Compile Include="UserControls\PlaylistLoadUserControl.xaml.cs">
       <DependentUpon>PlaylistLoadUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PlayListTrackUserControl.xaml.cs">
+      <DependentUpon>PlayListTrackUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PlayListUserControl.xaml.cs">
+      <DependentUpon>PlayListUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ResultUserControl.xaml.cs">
       <DependentUpon>ResultUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserTrackUserControl.xaml.cs">
-      <DependentUpon>UserTrackUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows.cs" />
-    <Compile Include="Pages\LibraryPage.xaml.cs">
-      <DependentUpon>LibraryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\UploadPage.xaml.cs">
-      <DependentUpon>UploadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TrackLoadUserControl.xaml.cs">
       <DependentUpon>TrackLoadUserControl.xaml</DependentUpon>
@@ -93,8 +89,18 @@
     <Compile Include="UserControls\TrackViewUserControl.xaml.cs">
       <DependentUpon>TrackViewUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserTrackUserControl.xaml.cs">
+      <DependentUpon>UserTrackUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\WindowStateUserControl.xaml.cs">
       <DependentUpon>WindowStateUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows.cs" />
+    <Compile Include="Pages\LibraryPage.xaml.cs">
+      <DependentUpon>LibraryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UploadPage.xaml.cs">
+      <DependentUpon>UploadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -168,28 +174,40 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\FollowUserControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\PlaylistLoadUserControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PlayListTrackUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PlayListUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\ResultUserControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\TrackLoadUserControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\TrackViewUserControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\UserTrackUserControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WindowStateUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -223,10 +241,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\WindowStateUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,19 +254,9 @@
     <Resource Include="Icons\UploadImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\LikeNonActive.png" />
     <Resource Include="Icons\Logo.png" />
-    <Resource Include="Icons\Next.png" />
     <Resource Include="Icons\Pause.png" />
     <Resource Include="Icons\Play.png" />
-    <Resource Include="Icons\Previous.png" />
-    <Resource Include="Icons\RepeatActive.png" />
-    <Resource Include="Icons\RepeatNonActive.png" />
-    <Resource Include="Icons\Shuffle.png" />
-    <Resource Include="Icons\Volume.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\Refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\People.png" />

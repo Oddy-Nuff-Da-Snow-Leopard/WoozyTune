@@ -27,6 +27,19 @@ namespace WoozyTune.UserControls
 
             Icon.Source = playIcon;
 
+            string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string select = $"SELECT [Artist], [Title] FROM Tracks WHERE [TrackId] = {trackId}";
+                var command = new SqlCommand(select, connection);
+
+                var reader = command.ExecuteReader();
+                reader.Read();
+                Artist_TextBox.Content = reader.GetString(0);
+                Title_TextBox.Content = reader.GetString(1);
+            }
+
         }
 
         int k = 0;

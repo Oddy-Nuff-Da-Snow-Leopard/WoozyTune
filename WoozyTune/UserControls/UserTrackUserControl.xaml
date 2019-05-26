@@ -4,11 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WoozyTune.UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="40" d:DesignWidth="350">
+             mc:Ignorable="d" FontFamily="calibry"
+             d:DesignHeight="50" d:DesignWidth="350">
+
     <Grid>
-        <StackPanel Orientation="Horizontal" MouseDown="StackPanel_MouseDown">
-            <Image Stretch="Fill" Name="Image" Width="40" Height="40"/>
+        <StackPanel Margin="5" Orientation="Horizontal" MouseDown="StackPanel_MouseDown">
+            <Image Stretch="Fill" Name="Image" Width="35" Height="35"/>
             <TextBlock Name="Track_Name_TextBlock" VerticalAlignment="Center" Padding="6 0 0 0" FontSize="20" FontFamily="Calibri" Width="310"/>
         </StackPanel>
     </Grid>

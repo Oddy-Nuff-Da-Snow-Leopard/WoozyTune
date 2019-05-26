@@ -19,16 +19,16 @@
                     <ColumnDefinition Width="160"/>
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="140"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="181*"/>
-                    <ColumnDefinition Width="181*"/>
+                    <ColumnDefinition Width="330"/>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="59*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button Style="{DynamicResource Logo_Button_Style}"/>
 
                 <Grid Grid.Column="1">
                     <Label Name="Home_Button" Content="Home" MouseDown="Home_Button_MouseDown" Style="{DynamicResource Header_Button_Style}"/>
-                    <Rectangle x:Name="Home_Underline" Style="{DynamicResource Underline_Rectangle_style}"/>
+                    <Rectangle Width="140" x:Name="Home_Underline" Style="{DynamicResource Underline_Rectangle_style}"/>
                 </Grid>
 
                 <Grid Grid.Column="2">
@@ -36,7 +36,7 @@
                     <Rectangle x:Name="Library_Underline" Style="{DynamicResource Underline_Rectangle_style}"/>
                 </Grid>
 
-                <TextBox Grid.Column="3" Height="30" Name="Search_TextBox" KeyDown="Search_TextBox_KeyDown" Style="{DynamicResource Search_Text_Box_Style}"/>
+                <TextBox Grid.Column="3" Name="Search_TextBox" KeyDown="Search_TextBox_KeyDown" Style="{DynamicResource Search_Text_Box_Style}" Margin="14,10" Width="Auto"/>
 
                 <Grid Grid.Column="4">
                     <Label Name="Upload_Button" Content="Upload" MouseDown="Upload_Button_MouseDown" Style="{DynamicResource Header_Button_Style}"/>
@@ -71,7 +71,7 @@
             </Grid>
 
 
-           
+
         </Grid>
     </Grid>
 </Window>

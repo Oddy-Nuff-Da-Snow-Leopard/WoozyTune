@@ -1,8 +1,11 @@
 GO
 DROP PROCEDURE FindUser;
 DROP PROCEDURE CreateUser;
-DROP PROCEDURE GetUsername;
 DROP PROCEDURE UploadTrack;
+DROP PROCEDURE GetUsername;
+DROP PROCEDURE UploadPlaylist;
+DROP PROCEDURE AddHistory;
+
 GO
 CREATE PROCEDURE FindUser @login nvarchar(max), @password int, @result int output AS
 BEGIN

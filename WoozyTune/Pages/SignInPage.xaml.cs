@@ -63,14 +63,14 @@ namespace WoozyTune.Pages
         private void No_Account_Button_Click(object sender, RoutedEventArgs e)
         {
             Join_Button.Visibility = Visibility.Visible;
-            Or_Label.Visibility = Visibility.Visible;
-            Continue_Button.Visibility = Visibility.Visible;
+            //Or_Label.Visibility = Visibility.Visible;
+            //Continue_Button.Visibility = Visibility.Visible;
 
             var doubleAnimation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
             
             Join_Button.BeginAnimation(OpacityProperty, doubleAnimation);
-            Or_Label.BeginAnimation(OpacityProperty, doubleAnimation);
-            Continue_Button.BeginAnimation(OpacityProperty, doubleAnimation);
+            //Or_Label.BeginAnimation(OpacityProperty, doubleAnimation);
+            //Continue_Button.BeginAnimation(OpacityProperty, doubleAnimation);
         }
     }
 }

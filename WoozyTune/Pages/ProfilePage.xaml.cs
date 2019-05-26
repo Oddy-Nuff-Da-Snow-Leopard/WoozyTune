@@ -20,7 +20,6 @@ namespace WoozyTune.Pages
 {
     public partial class ProfilePage : Page
     {
-        private int userId;
         public ProfilePage(int userId)
         {
             InitializeComponent();

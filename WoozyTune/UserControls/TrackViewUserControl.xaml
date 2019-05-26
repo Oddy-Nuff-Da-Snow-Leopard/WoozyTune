@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WoozyTune.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="180" d:DesignWidth="200">
+             d:DesignHeight="250" d:DesignWidth="250" FontFamily="Calibri">
 
     <UserControl.Resources>
         <Style TargetType="Image">
@@ -30,9 +30,16 @@
     </UserControl.Resources>
 
     <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
         <Image Stretch="Fill" Name="Image" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"/>
-        <Button Name="Playback_Button" Click="Playback_Button_Click" MouseEnter="Playback_Button_MouseEnter">
+        <Button Name="Playback_Button" Click="Playback_Button_Click" MouseEnter="Playback_Button_MouseEnter" Height="50" Margin="60,36,60,31" Width="50">
             <Image Width="30" Height="30" Name="Icon"/>
         </Button>
+        <Label Padding="0" Grid.Row="1" Name="Artist_TextBox"/>
+        <Label Padding="0" Grid.Row="2" Name="Title_TextBox"/>
     </Grid>
 </UserControl>

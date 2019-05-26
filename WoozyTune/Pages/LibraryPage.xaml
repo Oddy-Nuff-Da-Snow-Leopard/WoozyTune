@@ -9,8 +9,13 @@
       Title="LibraryPage">
 
     <Grid Background="#FFF1F1F1">
-        <Grid Margin="20" Background="White" Name="Tracks_Grid">
+        <Grid Margin="20" Background="White" Name="Tracks_Grid" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -22,12 +27,7 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="53*"/>
-                <ColumnDefinition Width="111*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Content="Tracks"/>
+            <Label Padding="0" FontSize="24" VerticalAlignment="Center" Content="Tracks you recently listened to"/>
         </Grid>
     </Grid>
 </Page>

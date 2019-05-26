@@ -53,19 +53,29 @@ namespace WoozyTune
         private void Home_Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Home_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Home_Underline.ActualWidth, Home_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
+            Library_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Library_Underline.ActualWidth, 0, TimeSpan.FromSeconds(0.3)));
+            Upload_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Upload_Underline.ActualWidth, 0, TimeSpan.FromSeconds(0.3)));
+
             frame.Navigate(homePage);
+
         }
 
         private void Library_Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Home_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Home_Underline.ActualWidth, 0, TimeSpan.FromSeconds(0.3)));
             Library_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Library_Underline.ActualWidth, Library_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
+            Upload_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Upload_Underline.ActualWidth, 0, TimeSpan.FromSeconds(0.3)));
+
             frame.Navigate(new LibraryPage());
         }
 
 
         private void Upload_Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Home_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Home_Underline.ActualWidth, 0, TimeSpan.FromSeconds(0.3)));
+            Library_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Library_Underline.ActualWidth, 0, TimeSpan.FromSeconds(0.3)));
             Upload_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Upload_Underline.ActualWidth, Upload_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
+
             frame.Navigate(new UploadPage());
         }
 

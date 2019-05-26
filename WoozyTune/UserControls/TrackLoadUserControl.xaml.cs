@@ -22,7 +22,7 @@ namespace WoozyTune.UserControls
             InitializeComponent();
             imagePath = catalog + @"\Images\Default track images\DefaultTrackImage.jpg";
             Image.Source = new BitmapImage(new Uri(imagePath));
-            Genre_ComboBox.ItemsSource = new List<string> { "None", "Ambient", "Classical", "Country", "Dubstep", "Electronic", "Hip-Hop & Rap", "Lo-fi", "Trap"};
+            Genre_ComboBox.ItemsSource = new List<string> { "None", "Ambient", "Country", "Dubstep", "Electronic", "Hip-Hop & Rap", "Rock", "Lo-fi", "Trap"};
             Genre_ComboBox.SelectedItem = "None";
 
             this.trackPath = trackPath;

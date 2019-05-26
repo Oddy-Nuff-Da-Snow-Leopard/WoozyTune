@@ -27,8 +27,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Content="Track"/>
+                <Label Content="Tracks"/>
             </Grid>
             
         </Grid>

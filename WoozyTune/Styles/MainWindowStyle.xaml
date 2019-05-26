@@ -53,7 +53,7 @@
         <Setter Property="Width" Value="0"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Fill" Value="DarkCyan"/>
+        <Setter Property="Fill" Value="#FFC56B20"/>
     </Style>
 
     <Style x:Key="Search_Text_Box_Style" TargetType="TextBox">

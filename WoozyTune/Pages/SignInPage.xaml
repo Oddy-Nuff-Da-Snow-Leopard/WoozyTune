@@ -61,8 +61,8 @@
                 <Button Grid.Row="11" Name="No_Account_Button" Content="Do not have an account?" Click="No_Account_Button_Click" Style="{DynamicResource No_Account_Button_Style}"/>
                 
                 <Button Grid.Row="12" Name="Join_Button" Content="Join us" Click="Join_Button_Click" Style="{DynamicResource Join_Button_Style}"/>
-                <Label Grid.Row="13" Name="Or_Label" Content="Or" Style="{DynamicResource Or_Label_Style}"/>
-                <Button Grid.Row="14" Name="Continue_Button" Content="Continue as a guest" Style="{DynamicResource Continue_Button_Style}"/>
+                <!--<Label Grid.Row="13" Name="Or_Label" Content="Or" Style="{DynamicResource Or_Label_Style}"/>
+                <Button Grid.Row="14" Name="Continue_Button" Content="Continue as a guest" Style="{DynamicResource Continue_Button_Style}"/>-->
             </Grid>
         </Grid>
     </Grid>

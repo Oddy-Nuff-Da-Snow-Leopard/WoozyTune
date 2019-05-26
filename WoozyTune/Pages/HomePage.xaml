@@ -14,14 +14,18 @@
 
     <Grid Background="#FFF1F1F1">
         <ScrollViewer>
-            <Grid Name="grid" Margin="20 20 3 20" Background="White" Height="1500">
+            <Grid Name="grid" Margin="20 20 3 20" Background="White" Height="1600">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="65"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="250"/>
                     <RowDefinition Height="65"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="250"/>
                     <RowDefinition Height="65"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="65"/>
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="65"/>
+                    <RowDefinition Height="250"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -57,11 +61,38 @@
                 </Grid>
 
                 <StackPanel Grid.Row="4">
-                    <Label FontSize="22" Content="R&apm;B"/>
+                    <Label FontSize="22" Content="Country"/>
                     <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="5" Name="RandB" HorizontalAlignment="Center">
+                <Grid Grid.Row="5" Name="Country" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <StackPanel Grid.Row="6">
+                    <Label FontSize="22" Content="Rock"/>
+                    <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
+                </StackPanel>
+
+                <Grid Grid.Row="7" Name="Rock" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="220"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <StackPanel Grid.Row="8">
+                    <Label FontSize="22" Content="Popular playlists from the WoozyTune community"/>
+                </StackPanel>
+
+                <Grid Grid.Row="9" Name="Playlists" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>

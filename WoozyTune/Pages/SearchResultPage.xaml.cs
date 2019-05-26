@@ -37,7 +37,7 @@ namespace WoozyTune.Pages
                 while (reader.Read())
                 {
                     var trackViewUserControl = new TrackViewUserControl((int)reader.GetValue(0), reader.GetString(5), reader.GetString(6));
-                    Grid.SetColumn(trackViewUserControl, i++);
+                    Grid.SetRow(trackViewUserControl, i++);
                     grid.Children.Add(trackViewUserControl);
                 }
             }
