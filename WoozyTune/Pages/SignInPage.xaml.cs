@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Input;
@@ -24,30 +22,13 @@ namespace WoozyTune.Pages
         {
             if (!string.IsNullOrEmpty(Login_TextBox.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
             {
-                string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
-
-                using (var connection = new SqlConnection(connectionString))
+                if ((CurrentUser.UserId = new Repository().FindUser(Login_TextBox.Text, PasswordBox.Password)) != 0)
                 {
-                    connection.Open();
-                    var command = new SqlCommand("FindUser", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@l", Value = Login_TextBox.Text });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@p", Value = PasswordBox.Password.GetHashCode() });
-                    var result = new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
-                    command.Parameters.Add(result);
-
-                    command.ExecuteNonQuery();
-
-                    if ((int)result.Value != 0)
-                    {
-                        CurrentUser.UserId = (int)result.Value;
-                        Windows.loginWindow.Hide();
-                        new MainWindow().Show();
-                        Windows.loginWindow.Close();
-                    }
-                    else { SignIn_Error_Label.Content = "Incorrect username or password"; }
+                    Windows.loginWindow.Hide();
+                    new MainWindow().Show();
+                    Windows.loginWindow.Close();
                 }
+                else { SignIn_Error_Label.Content = "Incorrect username or password"; }
             }
 
             if (string.IsNullOrEmpty(Login_TextBox.Text))

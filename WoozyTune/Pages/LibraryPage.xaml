@@ -8,7 +8,26 @@
       d:DesignHeight="580" d:DesignWidth="1024" Background="Blue"
       Title="LibraryPage">
 
-    <Grid>
-        
+    <Grid Background="#FFF1F1F1">
+        <Grid Margin="20" Background="White" Name="Tracks_Grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="53*"/>
+                <ColumnDefinition Width="111*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Tracks"/>
+        </Grid>
     </Grid>
 </Page>

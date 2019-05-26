@@ -3,9 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WoozyTune.Pages"
+      xmlns:local="clr-namespace:WoozyTune.UserControls"
       mc:Ignorable="d" 
-      d:DesignHeight="580" d:DesignWidth="1024" Style="{DynamicResource Page_Style}"
+      d:DesignHeight="300" d:DesignWidth="1024" Style="{DynamicResource Page_Style}"
       Title="UploadPage" Background="White">
 
     <Page.Resources>
@@ -14,33 +14,37 @@
 
     <Grid>
         <ScrollViewer Name="ScrollViewer">
-            <Grid Margin="20 20 3 20" Name="Load_Grid" Height="auto">
+            <Grid Margin="20 20 3 20" Name="Load_Grid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="250"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <Border Style="{DynamicResource Border_Style}" AllowDrop="True"/>
+                <Border Name="Drop_Border" Style="{DynamicResource Border_Style}" Drop="Drop_Border_Drop" DragEnter="Drop_Border_DragEnter"
+                        DragLeave="Drop_Border_DragLeave" AllowDrop="True" Background="#FFE6E6E6">
+                    
+                    <Grid Margin="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid Height="250" Name="Drop_Grid" Drop="Drop_Grid_Drop">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50" AllowDrop="True"/>
-                        <RowDefinition Height="50" AllowDrop="True"/>
-                        <RowDefinition Height="50" AllowDrop="True"/>
-                        <RowDefinition Height="50" AllowDrop="True"/>
-                        <RowDefinition Height="50" AllowDrop="True"/>
-                    </Grid.RowDefinitions>
-
-                    <Label Grid.Row="1" Content="Drag and drop your tracks &amp; albums here" Style="{DynamicResource Common_Label_Style}"/>
-                    <Button Grid.Row="2" Name="Choose_Button" Click="Choose_Button_Click" Style="{DynamicResource Choose_Button_Style}"/>
-                    <Label Grid.Row="4" FontSize="16" VerticalAlignment="Bottom" Content="Provide FLAC, WAV, ALAC or AIFF for best audio quality." Style="{DynamicResource Common_Label_Style}"/>
-                </Grid>
+                        <Label Grid.Row="1" Content="Drag and drop your tracks &amp; albums here" Style="{DynamicResource Common_Label_Style}"/>
+                        <Button Grid.Row="2" Name="Choose_Button" Click="Choose_Button_Click" Style="{DynamicResource Choose_Button_Style}"/>
+                        <CheckBox Grid.Row="3" Name="Playlist_CheckBox" Content="Make a playlist when multiple files are selected" Style="{DynamicResource Playlist_CheckBox_Style}"/>
+                        <Label Grid.Row="4" Margin="0 0 0 6" FontSize="16" VerticalAlignment="Bottom" Content="Provide MP3, WAW, RA, AU, RAM, AIFF, ALAC or FLAC for best audio quality." Style="{DynamicResource Common_Label_Style}"/>
+                    
+                    </Grid>
+                </Border>
                 
             </Grid>
         </ScrollViewer>

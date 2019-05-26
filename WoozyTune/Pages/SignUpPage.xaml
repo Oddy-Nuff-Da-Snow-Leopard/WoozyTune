@@ -90,6 +90,8 @@
                     <Label Grid.Row="16" Content="Create username" Style="{DynamicResource Label_Style}"/>
                     <TextBox Grid.Row="17" Name="Username_TextBox" Style="{DynamicResource TextBox_Style}"/>
                     <Label Grid.Row="18" Name="Username_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
+                    
+                    
                     <Button Grid.Row="19" Name="SignUp_Button" Content="Sign up!" Click="SignUp_Button_Click" Style="{DynamicResource SignUp_Button_Style}"/>
                 </Grid>
             </ScrollViewer>

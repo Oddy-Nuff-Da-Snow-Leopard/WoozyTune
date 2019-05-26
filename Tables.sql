@@ -9,18 +9,12 @@ DROP TABLE Users;
 
 CREATE TABLE UsersData(
 [UserId] int IDENTITY(1, 1) PRIMARY KEY,
-[Name] nvarchar(max) NULL,
-[Surname] nvarchar(max) NULL,
-
 [Gender] nvarchar(max) NOT NULL,
 [Age] int NOT NULL,
-[Username] nvarchar(max) NOT NULL,
+[Username] nvarchar(max) NOT NULL
+);
 
-[Country] nvarchar(max) NULL,
-[City] nvarchar(max) NULL,
-[BackgroundImagePath] varbinary(max) NULL,
-[ImagePath] varbinary(max) NULL);
-
+SELECT * FROM UsersData
 
 CREATE TABLE Users(
 [UserId] int IDENTITY(1, 1) PRIMARY KEY FOREIGN KEY REFERENCES UsersData(UserId),
@@ -38,23 +32,29 @@ CREATE TABLE Tracks(
 [ImagePath] nvarchar(max),
 [Genre] nvarchar(max));
 
+DROP TABLE Tracks
+SELECT * FROM Tracks
+
 DROP TABLE Playlists
 CREATE TABLE Playlists(
 [PlaylistId] int IDENTITY(0, 1) PRIMARY KEY,
 [Artist] nvarchar(max) NULL,
 [Title] nvarchar(max) NULL,
-[ImagePath] nvarchar(max) NULL);
-INSERT INTO Playlists VALUES(NULL, NULL, NULL);
+[ImagePath] nvarchar(max) NULL,
+[Type] nvarchar(max) NULL,
+[Genre] nvarchar(max) NULL);
+INSERT INTO Playlists VALUES(NULL, NULL, NULL, NULL, NULL);
 
+SELECT * FROM Playlists
+
+
+DROP TABLE UsersHistory
 CREATE TABLE UsersHistory(
 HistoryId int IDENTITY(1, 1) PRIMARY KEY,
 UserId int REFERENCES UsersData(UserId),
 TrackId int REFERENCES Tracks(TrackId));
 
-CREATE TABLE Likes(
-LikeId int IDENTITY(1, 1) PRIMARY KEY,
-UserId int REFERENCES UsersData(UserId),
-TrackId int REFERENCES Tracks(TrackId));
+SELECT * FROM UsersHistory
 
 CREATE TABLE Followers(
 Id int IDENTITY(1, 1) PRIMARY KEY,

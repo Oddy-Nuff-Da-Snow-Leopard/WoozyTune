@@ -5,20 +5,27 @@ using System.Windows.Media.Animation;
 using WoozyTune.UserControls;
 using WoozyTune.Pages;
 using System.Windows.Media;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace WoozyTune
 {
     public partial class MainWindow : Window
     {
-        private HomePage homePage;
-        private LibraryPage libraryPage;
-        private MediaPlayer mediaPlayer;
-        private UploadPage uploadPage;
+        public MediaPlayer mediaPlayer;
+
+        public List<TrackViewUserControl> list;
         
+        private HomePage homePage;
+
+        Repository repository = new Repository();
         public MainWindow()
         {
             InitializeComponent();
+            list = new List<TrackViewUserControl>();
+
             Windows.mainWindow = this;
+            homePage = new HomePage();
 
             Width = SystemParameters.PrimaryScreenWidth * 0.8;
             Height = SystemParameters.PrimaryScreenHeight * 0.8;
@@ -28,12 +35,19 @@ namespace WoozyTune
             a.WindowState_Label.Opacity = 0.7;
             grid.Children.Add(a);
 
-            homePage = new HomePage();
             mediaPlayer = new MediaPlayer();
 
             frame.Navigate(homePage);
 
-            //MessageBox.Show(UserId.ToString());
+            Profile_Button.Content = repository.GetUsername();
+
+            var tuple = new Repository().GetUsersToFollow();
+            for (int i = 0, j = 1; i < tuple.Item1.Length; i++, j++)
+            {
+                var followUserControl = new FollowUserControl(tuple.Item1[i], tuple.Item2[i]);
+                Grid.SetRow(followUserControl, j);
+                Users_Grid.Children.Add(followUserControl);
+            }
         }
 
         private void Home_Button_MouseDown(object sender, MouseButtonEventArgs e)
@@ -49,27 +63,20 @@ namespace WoozyTune
         }
 
 
-        //public void Open(Uri path) => mediaPlayer.Open(path);
-
-        //public void Play() => mediaPlayer.Play();
-
-        //public void Close() => mediaPlayer.Close();
-
-        //public void Pause() => mediaPlayer.Pause();
-
-        private void Playback_Button_Click(object sender, RoutedEventArgs e)
-        {
-            //if (Playback_Button.IsChecked == true)
-            //    Pause();
-            //else
-            //    Play();
-        }
-
         private void Upload_Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Upload_Underline.BeginAnimation(WidthProperty, new DoubleAnimation(Upload_Underline.ActualWidth, Upload_Button.ActualWidth, TimeSpan.FromSeconds(0.3)));
-            frame.Navigate(uploadPage = new UploadPage());
+            frame.Navigate(new UploadPage());
         }
+
+
+        private void Search_TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+                frame.Navigate(new SearchResultPage(Search_TextBox.Text));
+        }
+
+        private void Profile_Button_MouseDown(object sender, MouseButtonEventArgs e) => frame.Navigate(new ProfilePage(CurrentUser.UserId));
 
     }
 }

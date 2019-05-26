@@ -17,18 +17,21 @@
     <Style x:Key="Choose_Button_Style" TargetType="Button">
         <Setter Property="Content" Value="or choose files to upload"/>
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Width" Value="300"/>
+        <Setter Property="Width" Value="280"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="border" CornerRadius="15" Background="#FFBBBBBB">
+                    <Border x:Name="border" CornerRadius="15" Background="#FFA4A4A4">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FF838383"/>
+                        </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#FF464646"/>
+                            <Setter TargetName="border" Property="Background" Value="#FF666666"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -36,4 +39,35 @@
         </Setter>
     </Style>
 
+    <Style x:Key="Playlist_CheckBox_Style" TargetType="CheckBox">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <BulletDecorator Cursor="Hand">
+                        <BulletDecorator.Bullet>
+                            <Grid Height="14" Width="14">
+                                <Border Name="RadioOuter" BorderBrush="#FF515151" BorderThickness="1.5" CornerRadius="2"/>
+                                <Border CornerRadius="0" Margin="3" Name="RadioMark" Background="#FF515151" Visibility="Hidden"/>
+                            </Grid>
+                        </BulletDecorator.Bullet>
+
+                        <TextBlock Margin="5 0 0 0">
+                            <ContentPresenter/>
+                        </TextBlock>
+                    </BulletDecorator>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="RadioOuter" Property="BorderBrush" Value="#FF515151"/>
+                            <Setter TargetName="RadioMark" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>

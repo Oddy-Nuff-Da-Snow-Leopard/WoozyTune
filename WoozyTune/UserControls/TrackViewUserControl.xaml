@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WoozyTune.UserControls"
              mc:Ignorable="d" 
-            d:DesignHeight="180" d:DesignWidth="200">
+             d:DesignHeight="180" d:DesignWidth="200">
 
     <UserControl.Resources>
         <Style TargetType="Image">
@@ -13,21 +13,26 @@
         </Style>
 
         <Style TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Visibility" Value="Hidden"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border BorderThickness="1" BorderBrush="Black" CornerRadius="25" Width="50" Height="50" Background="#FFE06A6A"/>
+                        <Border BorderThickness="1" BorderBrush="Black" CornerRadius="25" Width="50" Height="50" Opacity="0.5" Background="White">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
     </UserControl.Resources>
-    
-    <Grid Background="blue" Margin="15">
+
+    <Grid Margin="15">
         <Image Stretch="Fill" Name="Image" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"/>
-        <ToggleButton Name="Playback_Button" Visibility="Hidden" Click="Playback_Button_Click" MouseEnter="Playback_Button_MouseEnter">
-            <Image Name="Icon"/>
-        </ToggleButton>
+        <Button Name="Playback_Button" Click="Playback_Button_Click" MouseEnter="Playback_Button_MouseEnter">
+            <Image Width="30" Height="30" Name="Icon"/>
+        </Button>
     </Grid>
 </UserControl>

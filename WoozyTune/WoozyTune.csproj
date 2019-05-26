@@ -60,6 +60,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CurrentUser.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SearchResultPage.xaml.cs">
+      <DependentUpon>SearchResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Repository.cs" />
+    <Compile Include="UserControls\FollowUserControl.xaml.cs">
+      <DependentUpon>FollowUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PlaylistLoadUserControl.xaml.cs">
+      <DependentUpon>PlaylistLoadUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ResultUserControl.xaml.cs">
+      <DependentUpon>ResultUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserTrackUserControl.xaml.cs">
+      <DependentUpon>UserTrackUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows.cs" />
     <Compile Include="Pages\LibraryPage.xaml.cs">
       <DependentUpon>LibraryPage.xaml</DependentUpon>
@@ -123,6 +143,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SearchResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UploadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,7 +159,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\LoadUserControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UploadPageStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FollowUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PlaylistLoadUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ResultUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\TrackViewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserTrackUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +236,9 @@
     <Resource Include="BackgroundImages\SignInPageBackground.png" />
     <Resource Include="BackgroundImages\SignUpPageBackground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\UploadImage.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\LikeNonActive.png" />
     <Resource Include="Icons\Logo.png" />
@@ -200,6 +250,12 @@
     <Resource Include="Icons\RepeatNonActive.png" />
     <Resource Include="Icons\Shuffle.png" />
     <Resource Include="Icons\Volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\People.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,30 +1,34 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Data.SqlClient;
+using System.Data;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using WoozyTune.UserControls;
 
-using System;
 namespace WoozyTune.Pages
 {
-    public partial class HomePage : Page
+    public partial class SearchResultPage : Page
     {
-        public HomePage()
+        public SearchResultPage(string search)
         {
             InitializeComponent();
 
-            var gridList = new List<Grid>();
-            gridList.Add(Trap);
-            foreach (var g in gridList)
-                LoadPlayList(g);
-        }
-
-        private void LoadPlayList(Grid grid)
-        {
             string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string select = $"SELECT * FROM Tracks WHERE [Genre] = '{grid.Name}'";
+                string select = $"SELECT * FROM Tracks WHERE [Title] LIKE '%{search}%'";
                 var command = new SqlCommand(select, connection);
 
                 var reader = command.ExecuteReader();
@@ -35,11 +39,8 @@ namespace WoozyTune.Pages
                     var trackViewUserControl = new TrackViewUserControl((int)reader.GetValue(0), reader.GetString(5), reader.GetString(6));
                     Grid.SetColumn(trackViewUserControl, i++);
                     grid.Children.Add(trackViewUserControl);
-                    Windows.mainWindow.list.Add(trackViewUserControl);
                 }
             }
-
         }
-
     }
 }

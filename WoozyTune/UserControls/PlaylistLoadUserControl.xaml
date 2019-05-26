@@ -1,19 +1,19 @@
-﻿<UserControl x:Class="WoozyTune.UserControls.TrackLoadUserControl"
+﻿<UserControl x:Class="WoozyTune.UserControls.PlaylistLoadUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WoozyTune.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="420" d:DesignWidth="850">
+             d:DesignHeight="550" d:DesignWidth="850">
 
     <UserControl.Resources>
         <ResourceDictionary Source="/WoozyTune;component/Styles/LoadUserControlStyle.xaml"/>
     </UserControl.Resources>
 
     <Grid Background="White">
-        <Grid Margin="0 40 0 0" Grid.Row="1" HorizontalAlignment="Center">
-            
+        <Grid Margin="0 0 0 0" Grid.Row="1" HorizontalAlignment="Center">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="22"/>
                 <RowDefinition Height="3"/>
@@ -21,10 +21,10 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="1"/>
                 <RowDefinition Height="270"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Name="File_Name_Label" FontSize="16" Style="{DynamicResource Common_Label_Style}"/>
             <Label Grid.Row="1" Background="#FF2F4991"/>
             <Label Grid.Row="3" Content="Fill in the basic information" 
                    Margin="0 3 0 0" FontSize="22" Style="{DynamicResource Common_Label_Style}"/>
@@ -38,33 +38,57 @@
                     <ColumnDefinition Width="2"/>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="250"/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <Image Name="Image" Stretch="Fill"/>
-                <Button Name="Upload_Image_Button" Click="Upload_Image_Button_Click" Style="{DynamicResource Upload_Image_Button_Style}" Margin="55,0,55,40"/>
+                <Button Name="Upload_Image_Button" Click="Upload_Image_Button_Click" Style="{DynamicResource Upload_Image_Button_Style}" Margin="55,0,55,40" Width="Auto"/>
                 <Label Grid.Column="2" Background="Gray"/>
                 <Grid Grid.Column="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="24"/>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="24"/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Content="Artist" Style="{DynamicResource Field_Label_Style}" Height="30"/>
-                    <TextBox Grid.Row="1" Name="Artist_TextBox" Style="{DynamicResource Common_TextBox_Style}"/>
-                    <Label Grid.Row="3" Content="Title" Style="{DynamicResource Field_Label_Style}" Height="30"/>
-                    <TextBox Grid.Row="4" Name="Title_TextBox" Style="{DynamicResource Common_TextBox_Style}"/>
-                    <Label Grid.Row="6" Content="Genre" Style="{DynamicResource Field_Label_Style}" Height="28"/>
+                   
+                    <Label Grid.Row="0" Content="Title" Style="{DynamicResource Field_Label_Style}"/>
+                    <TextBox Grid.Row="1" Name="Title_TextBox" Style="{DynamicResource Common_TextBox_Style}"/>
+                    <Label Grid.Row="3" Content="Playlist type" Style="{DynamicResource Field_Label_Style}"/>
+                    <ComboBox Grid.Row="4" Name="Type_ComboBox" Width="160" Style="{DynamicResource Genre_ComboBox_Style}"/>
+                    <Label Grid.Row="6" Content="Genre" Style="{DynamicResource Field_Label_Style}"/>
                     <ComboBox Grid.Row="7" Name="Genre_ComboBox" Style="{DynamicResource Genre_ComboBox_Style}"/>
                 </Grid>
             </Grid>
             <Button Grid.Row="6" Content="Upload" Name="Upload_Button" Click="Upload_Button_Click" Style="{DynamicResource Upload_Button_Style}"/>
+
+            <Grid Grid.Row="7" Name="File_Names_Grid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

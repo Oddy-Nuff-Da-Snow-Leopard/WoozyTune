@@ -12,27 +12,28 @@
         <ResourceDictionary Source="/Styles/HomePageStyle.xaml"/>
     </Page.Resources>
 
-    <Grid Background="#FFB2B2B2">
+    <Grid Background="#FFF1F1F1">
         <ScrollViewer>
             <Grid Name="grid" Margin="20 20 3 20" Background="White" Height="1500">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="65"/>
                     <RowDefinition Height="200"/>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="65"/>
                     <RowDefinition Height="200"/>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="65"/>
                     <RowDefinition Height="200"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="1"/>
                 </Grid.ColumnDefinitions>
+                
                 <StackPanel Grid.Row="0">
                     <Label FontSize="22" Content="Trap"/>
                     <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="1" Name="Trap">
+                <Grid Grid.Row="1" Name="Trap" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>
@@ -46,7 +47,7 @@
                     <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="3" Name="Lofi">
+                <Grid Grid.Row="3" Name="Lofi"  HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>
@@ -60,7 +61,7 @@
                     <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="5" Name="RandB">
+                <Grid Grid.Row="5" Name="RandB" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>
