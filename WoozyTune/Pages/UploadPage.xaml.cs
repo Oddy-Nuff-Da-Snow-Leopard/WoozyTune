@@ -7,6 +7,8 @@ using System.Windows.Media;
 
 namespace WoozyTune.Pages
 {
+    
+
     public partial class UploadPage : Page
     {
         List<string> paths;
@@ -27,6 +29,7 @@ namespace WoozyTune.Pages
                 var playlistLoadUserControl = new PlaylistLoadUserControl((string[])e.Data.GetData(DataFormats.FileDrop));
                 Grid.SetRow(playlistLoadUserControl, i);
                 Load_Grid.Children.Add(playlistLoadUserControl);
+
             }
 
             else
@@ -39,6 +42,7 @@ namespace WoozyTune.Pages
                     Load_Grid.Children.Add(trackLoadUserControl);
                 }
             }
+
         }
 
 
@@ -69,6 +73,11 @@ namespace WoozyTune.Pages
         private void Drop_Border_DragLeave(object sender, DragEventArgs e)
         {
             Drop_Border.Background = new SolidColorBrush(Color.FromRgb(230, 230, 230));
+        }
+
+        public void Remove(UIElement uIElement)
+        {
+            Load_Grid.Children.Remove(uIElement);
         }
     }
 }

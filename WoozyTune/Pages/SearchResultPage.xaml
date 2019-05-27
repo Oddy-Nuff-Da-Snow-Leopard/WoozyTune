@@ -9,14 +9,14 @@
       Title="SearchResultPage">
 
     <Grid Background="#FFF1F1F1">
-        <Grid Name="grid" Margin="20" HorizontalAlignment="Center" Width="300">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-        </Grid>
+        <ScrollViewer>
+            <Grid Name="grid" Margin="20" HorizontalAlignment="Center" Width="240">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label FontSize="22" Grid.Row="0" Content="Search resulst"/>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

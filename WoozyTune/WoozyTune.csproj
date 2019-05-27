@@ -74,15 +74,6 @@
     <Compile Include="UserControls\PlaylistLoadUserControl.xaml.cs">
       <DependentUpon>PlaylistLoadUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PlayListTrackUserControl.xaml.cs">
-      <DependentUpon>PlayListTrackUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\PlayListUserControl.xaml.cs">
-      <DependentUpon>PlayListUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ResultUserControl.xaml.cs">
-      <DependentUpon>ResultUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\TrackLoadUserControl.xaml.cs">
       <DependentUpon>TrackLoadUserControl.xaml</DependentUpon>
     </Compile>
@@ -178,18 +169,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\PlaylistLoadUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\PlayListTrackUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\PlayListUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\ResultUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -56,3 +56,29 @@ CREATE PROCEDURE AddHistory @userId int, @trackId int AS
 BEGIN
 	INSERT INTO UsersHistory VALUES(@userId, @trackId);
 END
+GO
+
+CREATE PROCEDURE AddFollow @followerId int, @userId int AS
+BEGIN
+	INSERT INTO Followers VALUES(@followerId, @userId);
+END
+GO
+
+DROP PROC DropFollow
+GO
+CREATE PROCEDURE DropFollow @followerId int, @userId int AS
+BEGIN
+	DELETE FROM Followers WHERE [FollowerId] = @followerId AND [UserId] = @userId;
+	DBCC CHECKIDENT('[Followers]', RESEED, 0);
+END
+GO
+
+
+
+CREATE PROCEDURE CheckForFollow @followerId int, @userId int, @result int output AS
+BEGIN
+	SELECT * FROM Followers WHERE [FollowerId] = @followerId AND [UserId] = @userId;
+	SET @result = @@ROWCOUNT;
+END
+
+SELECT * FROM Followers

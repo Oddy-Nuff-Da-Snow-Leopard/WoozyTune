@@ -22,7 +22,7 @@ namespace WoozyTune.UserControls
             InitializeComponent();
             imagePath = catalog + @"\Images\Default track images\DefaultTrackImage.jpg";
             Image.Source = new BitmapImage(new Uri(imagePath));
-            Genre_ComboBox.ItemsSource = new List<string> { "None", "Ambient", "Country", "Dubstep", "Electronic", "Hip-Hop & Rap", "Rock", "Lo-fi", "Trap"};
+            Genre_ComboBox.ItemsSource = new List<string> { "None", "Ambient", "Country", "Dubstep", "Electronic", "Hip-Hop & Rap", "Rock", "Lofi", "Trap"};
             Genre_ComboBox.SelectedItem = "None";
 
             this.trackPath = trackPath;
@@ -44,13 +44,15 @@ namespace WoozyTune.UserControls
                 newImagePath = imagePath;
 
             new Repository().UploadTrack(0, Artist_TextBox.Text, Title_TextBox.Text, newTrackPath, newImagePath, Genre_ComboBox.Text);
+
+            Upload_Button.IsEnabled = false;
         }
 
         private bool flag = false;
         private void Upload_Image_Button_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Images files(*.jpg;*.jpe;*.png;*.bmp*)|*.jpg;*.jpe;*.png;*.bmp*| All files(*.*)|*.*";
+            openFileDialog.Filter = "Images files(*.jpg;*.jpe;*.png;*.bmp*;*.jpeg)|*.jpg;*.jpe;*.png;*.bmp*;*.jpeg| All files(*.*)|*.*";
             if (openFileDialog.ShowDialog() == false)
                 return;
             flag = true;

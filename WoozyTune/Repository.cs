@@ -66,7 +66,6 @@ namespace WoozyTune
             }
         }
 
-
         public void UploadTrack(int playlistId, string artist, string title, string path, string imagePath, string genre)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -108,8 +107,22 @@ namespace WoozyTune
 
         }
 
-         public (int[], string[]) GetUsersToFollow()
+        public void AddHistory(int trackId)
         {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("AddHistory", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter { ParameterName = "@userId", Value = CurrentUser.UserId });
+                command.Parameters.Add(new SqlParameter { ParameterName = "@trackId", Value = trackId });
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public (int[], string[]) GetUsersToFollow()
+        { 
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -126,6 +139,52 @@ namespace WoozyTune
                 }
 
                 return (usersId.ToArray(), usernames.ToArray());
+            }
+        }
+
+        public void AddFollow(int userId)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("AddFollow", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter { ParameterName = "@followerId", Value = CurrentUser.UserId });
+                command.Parameters.Add(new SqlParameter { ParameterName = "@userId", Value = userId });
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void DropFollow(int userId)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("DropFollow", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter { ParameterName = "@followerId", Value = CurrentUser.UserId });
+                command.Parameters.Add(new SqlParameter { ParameterName = "@userId", Value = userId });
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public int CheckForFollow(int userId)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("CheckForFollow", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter { ParameterName = "@followerId", Value = CurrentUser.UserId });
+                command.Parameters.Add(new SqlParameter { ParameterName = "@userId", Value = userId });
+                var result = new SqlParameter { ParameterName = "@result", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+                command.Parameters.Add(result);
+                command.ExecuteNonQuery();
+
+                return (int)result.Value;
             }
         }
     }

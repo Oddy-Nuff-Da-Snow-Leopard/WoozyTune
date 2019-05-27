@@ -56,5 +56,5 @@ TrackId int REFERENCES Tracks(TrackId));
 
 CREATE TABLE Followers(
 Id int IDENTITY(1, 1) PRIMARY KEY,
-UserId int REFERENCES UsersData(UserId),
-FollowerId int REFERENCES UsersData(UserId));
+FollowerId int REFERENCES UsersData(UserId),
+UserId int REFERENCES UsersData(UserId));

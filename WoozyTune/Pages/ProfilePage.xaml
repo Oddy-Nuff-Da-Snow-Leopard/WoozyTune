@@ -9,29 +9,24 @@
       Title="ProfilePage">
 
     <Grid Background="#FFF1F1F1">
-        <Grid Margin="20" Background="White">
+        <Grid Margin="20" Background="White" Width="auto">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="270"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="177*"/>
+                <ColumnDefinition Width="151*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="1" Name="Tracks_Grid">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Content="Tracks"/>
-            </Grid>
-            
+            <ScrollViewer Grid.Column="1">
+                <Grid Grid.Column="1" Name="Tracks_Grid" Width="auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label FontSize="26" Content="Uploaded tracks"/>
+                </Grid>
+            </ScrollViewer>
+
+            <Button Name="Follow_Button" Content="Follow" Click="Follow_Button_Click" Width="120" Height="30" Grid.Column="2" Margin="172,10,10,440"/>
         </Grid>
     </Grid>
 </Page>

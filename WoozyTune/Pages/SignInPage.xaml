@@ -56,7 +56,7 @@
                 <Label Grid.Row="8" HorizontalAlignment="Center" Name="SignIn_Error_Label" Style="{DynamicResource Error_Label_Style}"/>
                 <Label Grid.Row="9" Style="{DynamicResource Separator_Label_Style}"/>
                 
-                <Button Grid.Row="10" Name="Forgot_Password_Button" Content="Forgot your password?" Style="{DynamicResource Forgot_Password_Button_Style}"/>
+                <!--<Button Grid.Row="10" Name="Forgot_Password_Button" Content="Forgot your password?" Style="{DynamicResource Forgot_Password_Button_Style}"/>-->
                 
                 <Button Grid.Row="11" Name="No_Account_Button" Content="Do not have an account?" Click="No_Account_Button_Click" Style="{DynamicResource No_Account_Button_Style}"/>
                 

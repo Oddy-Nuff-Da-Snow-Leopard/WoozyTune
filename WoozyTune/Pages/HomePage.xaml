@@ -47,11 +47,11 @@
                 </Grid>
 
                 <StackPanel Grid.Row="2">
-                    <Label FontSize="22" Content="Lofi"/>
+                    <Label FontSize="22" Content="Rock"/>
                     <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="3" Name="Lofi"  HorizontalAlignment="Center">
+                <Grid Grid.Row="3" Name="Rock" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>
@@ -75,11 +75,11 @@
                 </Grid>
 
                 <StackPanel Grid.Row="6">
-                    <Label FontSize="22" Content="Rock"/>
+                    <Label FontSize="22" Content="Ambient"/>
                     <Label FontSize="18" Content="Popular tracks from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="7" Name="Rock" HorizontalAlignment="Center">
+                <Grid Grid.Row="7" Name="Ambient" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>
@@ -92,7 +92,7 @@
                     <Label FontSize="22" Content="Popular playlists from the WoozyTune community"/>
                 </StackPanel>
 
-                <Grid Grid.Row="9" Name="Playlists" HorizontalAlignment="Center">
+                <Grid Grid.Row="9" Name="Lofi" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="220"/>

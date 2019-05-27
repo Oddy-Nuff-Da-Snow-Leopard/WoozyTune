@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using System.Data.SqlClient;
-using System.Data;
 using Microsoft.Win32;
 using System.Reflection;
 using System.IO;
@@ -22,7 +20,7 @@ namespace WoozyTune.UserControls
         public PlaylistLoadUserControl(string[] paths)
         {
             InitializeComponent();
-            Genre_ComboBox.ItemsSource = new List<string> { "None", "Ambient", "Classical", "Country", "Dubstep", "Electronic", "Hip-Hop & Rap", "Lo-fi", "Trap" };
+            Genre_ComboBox.ItemsSource = new List<string> { "None", "Ambient", "Classical", "Country", "Dubstep", "Electronic", "Hip-Hop & Rap", "Lofi", "Trap" };
             Genre_ComboBox.SelectedItem = "None";
 
             Type_ComboBox.ItemsSource = new List<string> { "Album", "Compilation", "EP", "Playlist", "Mixtape" };
@@ -74,6 +72,8 @@ namespace WoozyTune.UserControls
             int i = 0;
             foreach(var newPath in newPaths)
                 repository.UploadTrack(playlistId, repository.GetUsername(), textBoxes[i++].Text, newPath, newImagePath, Genre_ComboBox.Text);
+
+            Upload_Button.IsEnabled = false;
         }
 
 
@@ -81,7 +81,7 @@ namespace WoozyTune.UserControls
         private void Upload_Image_Button_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Images files(*.jpg;*.jpe;*.png;*.bmp*)|*.jpg;*.jpe;*.png;*.bmp*| All files(*.*)|*.*";
+            openFileDialog.Filter = "Images files(*.jpg;*.jpe;*.png;*.bmp*;*.jpeg)|*.jpg;*.jpe;*.png;*.bmp*;*.jpeg| All files(*.*)|*.*";
             if (openFileDialog.ShowDialog() == false)
                 return;
             flag = true;

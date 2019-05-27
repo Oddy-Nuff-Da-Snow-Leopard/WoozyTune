@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace WoozyTune.UserControls
 {
@@ -27,6 +26,7 @@ namespace WoozyTune.UserControls
 
             Icon.Source = playIcon;
 
+            #region
             string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
             using (var connection = new SqlConnection(connectionString))
             {
@@ -39,6 +39,7 @@ namespace WoozyTune.UserControls
                 Artist_TextBox.Content = reader.GetString(0);
                 Title_TextBox.Content = reader.GetString(1);
             }
+            #endregion
 
         }
 
@@ -58,17 +59,7 @@ namespace WoozyTune.UserControls
                 foreach (var a in Windows.mainWindow.list)
                     a.k = 0;
 
-                string connectionString = @"Data Source=JAMES-SPLEEN;Initial Catalog=WoozyTune;Integrated Security=True";
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    var command = new SqlCommand("AddHistory", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@userId", Value = CurrentUser.UserId });
-                    command.Parameters.Add(new SqlParameter { ParameterName = "@trackId", Value = trackId });
-                    command.ExecuteNonQuery();
-                }
+                new Repository().AddHistory(trackId);
             }
             
 

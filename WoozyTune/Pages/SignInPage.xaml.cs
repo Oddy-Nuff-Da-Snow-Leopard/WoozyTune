@@ -12,8 +12,6 @@ namespace WoozyTune.Pages
         public SignInPage()
         {
             InitializeComponent();
-            Login_TextBox.Text = "angry.school.boy";
-            PasswordBox.Password = "P@ssw0rd";
         }
 
         private void Join_Button_Click(object sender, RoutedEventArgs e) => Windows.loginWindow.frame.Navigate(new SignUpPage());
